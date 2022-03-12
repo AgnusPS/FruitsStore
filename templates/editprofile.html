@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    
+    <section class="main-bg">
+        <div class="reg-main">
+            <h3 class="mt-3">Edit Profile</h3>
+            <form action="{% url 'Home:register' %}" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="enter your name" name="name"><br>
+                <input type="email" placeholder="enter your email" name="email"><br>
+                <input type="number" placeholder="enter your phone" name="phno"><br>
+                <input type="text" placeholder="enter your place" name="place"><br>
+                <input type="password" placeholder="enter your password" name="pswd"><br>
+                <input type="text" placeholder="re-enter your password" name="cpswd"><br>
+                <button type="submit" class="btn btn-outline-primary mx-auto d-block">SUBMIT</button><br>
+            </form>
+            <span class="h6 text-dark ml-5">Already A User , </span>
+            <a href="{% url 'Home:login' %}"><span class="h5 text-primary ">Log In</span></a>
+        </div>
+    </section>
+
+</body>
+{% endblock %}

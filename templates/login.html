@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    
+    <section class="main-bg">
+        <div class="reg-main">
+            <h3 class="mt-5">LOG IN</h3>
+            <form action="{% url 'Home:login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="enter your username" name="uname"><br>
+                <input type="password" placeholder="enter your password" name="pswd"><br>
+                <button type="submit" class="btn btn-outline-primary mx-auto d-block">LOG IN</button><br>
+            </form>
+            <span class="h6 text-dark ml-5">Not A User , </span>
+            <a href="{% url 'Home:register' %}"><span class="h5 text-primary ">Register Now</span></a>
+        </div>
+    </section>
+
+</body>
+{% endblock %}
